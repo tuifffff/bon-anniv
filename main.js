@@ -35,3 +35,52 @@ function createStars() {
 
 // Chạy hàm tạo sao
 createStars();
+// Sau khi load trang, đợi hoa nở xong rồi hiện nút
+// Đợi trang load xong
+window.addEventListener('load', function() {
+    // Đợi 8 giây cho hoa nở xong rồi mới hiện lời ngỏ
+    setTimeout(() => {
+        const qBox = document.getElementById('question-box');
+        if (qBox) qBox.style.opacity = '1';
+    }, 1000); 
+});
+
+function openLetter() {
+    const qBox = document.getElementById('question-box');
+    const letter = document.getElementById('letter-overlay');
+    
+    qBox.style.opacity = '0';
+    setTimeout(() => { qBox.style.display = 'none'; }, 1000);
+
+    letter.style.display = 'flex';
+    setTimeout(() => { letter.style.opacity = '1'; }, 100);
+}
+
+function skipAll() {
+    const qBox = document.getElementById('question-box');
+    // Chỉ làm mờ lời ngỏ, để lại hoa và sao cho cô ấy ngắm
+    qBox.style.opacity = '0';
+    setTimeout(() => { qBox.style.display = 'none'; }, 2000);
+}
+const message = "Tớ biết hôm nay là một ngày đặc biệt nên tớ cũng không muốn cậu phải phiền lòng. Tớ có vài lời muốn nói, cậu có thể xem hoặc bỏ qua bất cứ lúc nào nhé...";
+let index = 0;
+
+function typeWriter() {
+    const textElement = document.getElementById("typing-text");
+    const buttons = document.getElementById("action-buttons");
+
+    if (index < message.length) {
+        textElement.innerHTML += message.charAt(index);
+        index++;
+        // Tốc độ đánh máy: 60ms mỗi chữ (tăng số này nếu muốn chậm hơn nữa)
+        setTimeout(typeWriter, 60); 
+    } else {
+        // Đánh máy xong thì hiện 2 nút bấm ra từ từ
+        buttons.style.opacity = "1";
+    }
+}
+
+window.addEventListener('load', function() {
+    // Đợi 6 giây cho hoa nở xong rồi bắt đầu "gõ chữ"
+    setTimeout(typeWriter, 6000); 
+});
