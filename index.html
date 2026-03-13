@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="img/flowers.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <title>cmsn</title>
 </head>
 
@@ -308,38 +311,6 @@
       </div>
     </div>
     <script src="main.js"></script>
-    <!-- <div id="question-box" style="
-    opacity: 0; 
-    position: fixed; 
-    bottom: 10vh; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    width: 80%; 
-    text-align: center; 
-    transition: 3s; 
-    z-index: 150;
-">
-    <p style="
-    color: #fff; 
-    /* Dùng font hệ thống hỗ trợ tiếng Việt cực tốt, thanh thoát */
-    font-family: 'San Francisco', Roboto, 'Helvetica Neue', Arial, sans-serif; 
-    line-height: 1.6; 
-    font-size: 16px; 
-    margin-bottom: 25px; 
-    /* BỎ hoàn toàn letter-spacing nếu có */
-    text-shadow: 0 0 5px rgba(255,255,255,0.3);
-    /* Giúp chữ hiển thị mượt hơn */
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-">
-    Tớ biết hôm nay là một ngày đặc biệt nên tớ cũng không muốn cậu phải phiền lòng. 
-    Tớ có vài lời muốn nói, cậu có thể xem hoặc bỏ qua bất cứ lúc nào nhé...
-</p>
-    <div style="display: flex; justify-content: center; gap: 20px;">
-        <button onclick="openLetter()" style="background: transparent; border: 1px solid #fff; color: #fff; padding: 8px 25px; cursor: pointer; font-family: serif;">XEM</button>
-        <button onclick="skipAll()" style="background: transparent; border: 1px solid rgba(255,255,255,0.4); color: rgba(255,255,255,0.6); padding: 8px 25px; cursor: pointer; font-family: serif;">BỎ QUA</button>
-    </div>
-</div> -->
 <div id="question-box" style="
     position: fixed; 
     bottom: 10vh; 
@@ -366,18 +337,54 @@
         opacity: 0; 
         transition: 3s;
     ">
-        <button onclick="openLetter()" style="background: transparent; border: 1px solid #fff; color: #fff; padding: 8px 25px; cursor: pointer; font-family: serif;">Tớ cũng đang rảnh...</button>
-        <button onclick="skipAll()" style="background: transparent; border: 1px solid rgba(255,255,255,0.4); color: rgba(255,255,255,0.6); padding: 8px 25px; cursor: pointer; font-family: serif;">Có lẽ để sau nhé</button>
+        <button onclick="openLetter()" class="btn-glass">Tớ cũng đang rảnh...</button>
+        <button onclick="skipAll()" class="btn-glass">Có lẽ để lúc khác nhé</button>
     </div>
 </div>
-<div id="letter-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 200; justify-content: center; align-items: center; opacity: 0; transition: 2s;">
+<!-- <div id="letter-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 200; justify-content: center; align-items: center; opacity: 0; transition: 2s;">
     <div style="background: #fff; width: 85%; max-width: 450px; padding: 40px; border-radius: 2px; color: #333; font-family: 'Georgia', serif;">
-        <h2 style="text-align: center; color: #000; font-weight: normal;">Gửi Huyền...</h2>
-        <div style="line-height: 1.8; margin-top: 20px; font-size: 15px;">
-            Chào cậu, tớ biết thời gian qua... <br><br>
-            Chúc cậu một ngày 31/03 thật bình an.
+        <h2 style="text-align: center; color: #000; font-weight: normal;">Hmm</h2>
+        <div style="line-height: 1.8; margin-top: 20px; font-size: 15px;font-family: 'San Francisco', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+            Tớ nợ cậu một lời xin lỗi vì trước đó đã hơi vồ vập làm cậu thấy phiền. Tớ vẫn thực sự trân trọng cậu, nma giờ tớ chọn cách để mọi thứ thuận theo tự nhiên. Cứ thong thả nhé, mình vẫn là bạn cũng được mà. Khi nào cậu thấy thoải mái trò chuyện lại thì nhắn tớ sau nhé <br><br>
+            Sinh nhật vui vẻ
         </div>
-        <p style="text-align: right; margin-top: 40px; font-style: italic;">- Boboi -</p>
+    </div>
+</div> -->
+<div id="letter-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 200; justify-content: center; align-items: center; opacity: 0; transition: 2s; backdrop-filter: blur(5px);">
+    
+    <div class="letter-paper" style="
+        background: #fdfdfd; 
+        width: 85%; 
+        max-width: 450px; 
+        padding: 50px 35px; 
+        border-radius: 4px; 
+        color: #333; 
+        position: relative;
+        /* Hiệu ứng đổ bóng tờ giấy */
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 100px rgba(0,0,0,0.02);
+        transform: translateY(20px);
+        transition: transform 2s ease;
+    ">
+        <h2 style="text-align: center; color: #111; font-weight: normal; font-family: 'Dancing Script', cursive; font-size: 32px; margin-bottom: 30px;">
+            Hmm...
+        </h2>
+
+        <div style="
+            line-height: 1.8; 
+            font-size: 15px; 
+            font-family: 'Cormorant Garamond', serif; 
+            text-align: justify;
+            color: #444;
+        ">
+            Có lẽ tớ nợ cậu một lời xin lỗi vì trước đó đã hơi vồ vập làm cậu thấy khó xử. Tớ vẫn thực sự trân trọng cậu, nhưng giờ tớ chọn cách để mọi thứ thuận theo tự nhiên. 
+  
+            Cứ thoải mái nhé, mình vẫn là bạn mà. 
+            <br><br>
+            <div style="text-align: left; margin-top: 30px; font-size: 18px; color: #000;">
+                Sinh nhật vui vẻ!
+            </div>
+            <img src="img/shin1.png" style="position: absolute; bottom: 15px; right: 20px; width: 33%; height: 33%;">
+        </div>
     </div>
 </div>
   </body>

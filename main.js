@@ -42,7 +42,7 @@ window.addEventListener('load', function() {
     setTimeout(() => {
         const qBox = document.getElementById('question-box');
         if (qBox) qBox.style.opacity = '1';
-    }, 1000); 
+    }, 8000); 
 });
 
 function openLetter() {
@@ -62,7 +62,7 @@ function skipAll() {
     qBox.style.opacity = '0';
     setTimeout(() => { qBox.style.display = 'none'; }, 2000);
 }
-const message = "Tớ biết hôm nay là một ngày đặc biệt nên tớ cũng không muốn cậu phải phiền lòng. Tớ có vài lời muốn nói, cậu có thể xem hoặc bỏ qua bất cứ lúc nào nhé...";
+const message = "Tớ có đôi lời muốn nói, cậu có rảnh không?";
 let index = 0;
 
 function typeWriter() {
@@ -73,7 +73,7 @@ function typeWriter() {
         textElement.innerHTML += message.charAt(index);
         index++;
         // Tốc độ đánh máy: 60ms mỗi chữ (tăng số này nếu muốn chậm hơn nữa)
-        setTimeout(typeWriter, 60); 
+        setTimeout(typeWriter, 30); 
     } else {
         // Đánh máy xong thì hiện 2 nút bấm ra từ từ
         buttons.style.opacity = "1";
@@ -82,5 +82,5 @@ function typeWriter() {
 
 window.addEventListener('load', function() {
     // Đợi 6 giây cho hoa nở xong rồi bắt đầu "gõ chữ"
-    setTimeout(typeWriter, 6000); 
+    setTimeout(typeWriter, 8000); 
 });

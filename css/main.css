@@ -1384,3 +1384,70 @@ body {
 .flower__g-long {
     bottom: 33vh !important;
 }
+/* Container chứa 2 lựa chọn */
+#action-buttons {
+    display: flex;
+    flex-direction: column; /* Xếp dọc cho tinh tế trên iPhone */
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+    opacity: 0;
+    transition: 3s;
+}
+
+/* Nút chính: Tỏa sáng mờ ảo */
+/* Container chứa 2 nút nằm ngang nhau cho cân đối */
+#action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    opacity: 0;
+    transition: 3s;
+}
+
+.btn-glass {
+    background: rgba(255, 255, 255, 0.05); /* Nền trắng cực mờ */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Viền trắng mờ */
+    color: rgba(255, 255, 255, 0.8);
+    padding: 10px 25px;
+    
+    /* Bo tròn mềm mại */
+    border-radius: 25px; 
+    
+    cursor: pointer;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: all 0.5s ease;
+    backdrop-filter: blur(2px); /* Hiệu ứng kính mờ nhẹ */
+}
+
+/* Hiệu ứng khi chạm vào hoặc di chuột qua: Sáng lên một chút */
+.btn-glass:hover, .btn-glass:active {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Hiệu ứng nhịp thở cho ánh sáng */
+@keyframes glowPulse {
+    from {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.3);
+        transform: scale(1);
+    }
+    to {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 25px rgba(255, 255, 255, 0.7);
+        transform: scale(1.05);
+    }
+}
+/* Hiệu ứng khi thư hiện lên */
+#letter-overlay.active {
+    display: flex !important;
+    opacity: 1 !important;
+}
+
+#letter-overlay.active .letter-paper {
+    transform: translateY(0) !important;
+}
