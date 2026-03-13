@@ -12,7 +12,7 @@
 
 body {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   min-height: 100vh;
   background-color: var(--dark-color);
@@ -69,7 +69,7 @@ body {
 
 .flower {
   position: absolute;
-  bottom: 0;
+  bottom: 33vh;
   transform-origin: bottom center;
   z-index: 10;
   --fl-speed: 0.8s;
@@ -1374,11 +1374,11 @@ body {
           animation-play-state: paused !important;
 }/*# sourceMappingURL=main.css.map */
 /* "Nhổ cỏ" toàn diện */
-/* .long-g, 
+.long-g, 
 .flower__grass, 
 .flower__g-right, 
 .flower__g-front, 
 .flower__g-fr, 
 .flower__g-long {
-    display: none !important;
-} */
+    bottom: 33vh !important;
+}
