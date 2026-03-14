@@ -59,7 +59,7 @@ function skipAll(reason) {
         }, 2000);
     }
 }
-const message = "Tớ có đôi lời muốn nói, cậu có rảnh không?";
+const message = "Tớ có đôi lời muốn nói, cậu có rảnh không🙄";
 let index = 0;
 
 function typeWriter() {
@@ -80,7 +80,7 @@ function typeWriter() {
 window.addEventListener('load', function() {
     setTimeout(typeWriter, 8000); 
 });
-const textToType = "Có lẽ tớ nợ cậu một lời xin lỗi vì trước đó tớ đã hơi vồ vập làm cậu thấy khó xử. Tớ vẫn thực sự trân trọng và muốn tìm hiểu cậu, nhưng giờ tớ để mọi chuyện thuận theo tự nhiên. Cứ thoải mái nhé, mình vẫn là bạn mà :D";
+const textToType = "Có lẽ tớ nợ cậu một lời xin lỗi vì trước đó tớ đã hơi vồ vập làm cậu thấy khó xử. Tớ vẫn thực sự trân trọng và muốn tìm hiểu cậu, nhưng giờ tớ để mọi chuyện thuận theo tự nhiên. Cứ thoải mái nhé, mình vẫn là bạn mà😶‍🌫️";
 let charIndex = 0;
 
 function typeLetter() {
