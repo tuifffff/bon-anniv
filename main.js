@@ -59,7 +59,7 @@ function skipAll(reason) {
         }, 2000);
     }
 }
-const message = "Tớ có đôi lời muốn nói, cậu có rảnh không🙄";
+const message = "Tớ có đôi lời muốn nói, cậu có rảnh không?";
 let index = 0;
 
 function typeWriter() {
