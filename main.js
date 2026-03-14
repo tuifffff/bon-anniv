@@ -30,37 +30,59 @@ function createStars() {
         star.style.setProperty('--delay', `${delay}s`);
 
         night.appendChild(star);
+
     }
 }
 
 // Chạy hàm tạo sao
 createStars();
-// Sau khi load trang, đợi hoa nở xong rồi hiện nút
-// Đợi trang load xong
-window.addEventListener('load', function() {
-    // Đợi 8 giây cho hoa nở xong rồi mới hiện lời ngỏ
-    setTimeout(() => {
-        const qBox = document.getElementById('question-box');
-        if (qBox) qBox.style.opacity = '1';
-    }, 8000); 
-});
-
-function openLetter() {
-    const qBox = document.getElementById('question-box');
-    const letter = document.getElementById('letter-overlay');
+// function openLetter() {
+//     const qBox = document.getElementById('question-box');
+//     const letter = document.getElementById('letter-overlay');
     
-    qBox.style.opacity = '0';
-    setTimeout(() => { qBox.style.display = 'none'; }, 1000);
+//     qBox.style.opacity = '0';
+//     setTimeout(() => { qBox.style.display = 'none'; }, 1000);
 
-    letter.style.display = 'flex';
-    setTimeout(() => { letter.style.opacity = '1'; }, 100);
-}
+//     letter.style.display = 'flex';
+//     setTimeout(() => { letter.style.opacity = '1'; }, 100);
+// }
 
-function skipAll() {
-    const qBox = document.getElementById('question-box');
-    // Chỉ làm mờ lời ngỏ, để lại hoa và sao cho cô ấy ngắm
-    qBox.style.opacity = '0';
-    setTimeout(() => { qBox.style.display = 'none'; }, 2000);
+// function skipAll() {
+//     const qBox = document.getElementById('question-box');
+
+//     qBox.style.opacity = '0';
+//     setTimeout(() => { qBox.style.display = 'none'; }, 2000);
+// }
+// function skipAll() {
+// console.log("Đã nhận lệnh quay lại ngắm hoa!");
+//     const qBox = document.getElementById('question-box');
+//     const letterOverlay = document.getElementById('letter-overlay');
+    
+//     // Mờ dần cả lời ngỏ và bức thư
+//     if(qBox) qBox.style.opacity = '0';
+//     if(letterOverlay) letterOverlay.style.opacity = '0';
+    
+//     // Đợi mờ hẳn rồi mới ẩn đi hoàn toàn
+//     setTimeout(() => {
+//         if(qBox) qBox.style.display = 'none';
+//         if(letterOverlay) letterOverlay.style.display = 'none';
+//     }, 2000);
+// }
+function skipAll(reason) {
+
+    const letterOverlay = document.getElementById('letter-overlay');
+    if (reason === 'refuse') {
+        trackAction("No");
+    } else if (reason === 'return') {
+        trackAction("Return");
+    }
+    if(letterOverlay) {
+        letterOverlay.style.opacity = '0';
+        // Đợi mờ hẳn rồi mới cất đi
+        setTimeout(() => {
+            letterOverlay.style.display = 'none';
+        }, 5000);
+    }
 }
 const message = "Tớ có đôi lời muốn nói, cậu có rảnh không?";
 let index = 0;
@@ -72,8 +94,8 @@ function typeWriter() {
     if (index < message.length) {
         textElement.innerHTML += message.charAt(index);
         index++;
-        // Tốc độ đánh máy: 60ms mỗi chữ (tăng số này nếu muốn chậm hơn nữa)
-        setTimeout(typeWriter, 30); 
+        //  60ms 
+        setTimeout(typeWriter, 50); 
     } else {
         // Đánh máy xong thì hiện 2 nút bấm ra từ từ
         buttons.style.opacity = "1";
@@ -81,6 +103,66 @@ function typeWriter() {
 }
 
 window.addEventListener('load', function() {
-    // Đợi 6 giây cho hoa nở xong rồi bắt đầu "gõ chữ"
     setTimeout(typeWriter, 8000); 
 });
+const textToType = "Có lẽ tớ nợ cậu một lời xin lỗi vì trước đó đã hơi vồ vập làm cậu thấy khó xử. Tớ vẫn thực sự trân trọng và muốn tìm hiểu cậu, nhưng giờ tớ chọn cách để mọi thứ thuận theo tự nhiên. Cứ thoải mái nhé, mình vẫn là bạn mà.";
+let charIndex = 0;
+
+function typeLetter() {
+    const letterBody = document.getElementById("letter-body");
+    const birthdayWish = document.getElementById("birthday-wish");
+    const anh1 = document.getElementById("anh1");
+    const backBtn = document.getElementById("back-to-flowers");
+    if (charIndex < textToType.length) {
+        letterBody.innerHTML += textToType.charAt(charIndex);
+        charIndex++;
+        // Tốc độ gõ: 50ms (vừa đủ để đọc kịp)
+        setTimeout(typeLetter, 50); 
+    } else {
+        // Gõ xong thì hiện lời chúc
+        birthdayWish.style.opacity = "1";
+        // Hiện ảnh Shin-chan
+        anh1.style.opacity = "1";
+        setTimeout(() => {
+            backBtn.style.opacity = "1";
+        }, 1000);
+    }
+}
+
+// Gọi hàm này trong cái hàm openLetter() của cậu nhé
+// function openLetter() {
+//     // ... code hiện overlay của cậu ...
+//     document.getElementById('letter-overlay').classList.add('active'); // Giả sử cậu dùng class active để hiện
+    
+//     // Đợi overlay hiện lên mượt mà rồi mới bắt đầu gõ
+//     setTimeout(typeLetter, 1500);
+
+// }
+function openLetter() {
+        trackAction("mở thư");
+    const letterOverlay = document.getElementById('letter-overlay');
+    const qBox = document.getElementById('question-box');
+
+    // Ẩn lời ngỏ
+    if(qBox) qBox.style.opacity = '0';
+    setTimeout(() => { if(qBox) qBox.style.display = 'none'; }, 1000);
+
+    // Hiện thư: Quan trọng là phải chỉnh display TRƯỚC khi opacity
+    
+    setTimeout(() => {
+        letterOverlay.style.display = 'flex';
+    }, 1000);
+    setTimeout(() => {
+        letterOverlay.style.opacity = '1';
+        // Reset lại index nếu muốn chữ gõ lại từ đầu
+        charIndex = 0;
+        document.getElementById("letter-body").innerHTML = "";
+        setTimeout(typeLetter, 2000);
+    }, 1000);
+}
+function trackAction(actionName) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxqUF2-mNIZmVWaza0ucN7rD_8cMVUvSAvZ-mUBQ6F7Ac9Ex2ASa7i4SqF694ieQsER/exec';
+    fetch(`${scriptURL}?action=${encodeURIComponent(actionName)}`, { mode: 'no-cors' })
+        .then(() => console.log('Đã lưu: ' + actionName))
+        .catch(error => console.error('Lỗi lưu DB:', error));
+}
