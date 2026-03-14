@@ -36,38 +36,7 @@ function createStars() {
 
 // Chạy hàm tạo sao
 createStars();
-// function openLetter() {
-//     const qBox = document.getElementById('question-box');
-//     const letter = document.getElementById('letter-overlay');
-    
-//     qBox.style.opacity = '0';
-//     setTimeout(() => { qBox.style.display = 'none'; }, 1000);
 
-//     letter.style.display = 'flex';
-//     setTimeout(() => { letter.style.opacity = '1'; }, 100);
-// }
-
-// function skipAll() {
-//     const qBox = document.getElementById('question-box');
-
-//     qBox.style.opacity = '0';
-//     setTimeout(() => { qBox.style.display = 'none'; }, 2000);
-// }
-// function skipAll() {
-// console.log("Đã nhận lệnh quay lại ngắm hoa!");
-//     const qBox = document.getElementById('question-box');
-//     const letterOverlay = document.getElementById('letter-overlay');
-    
-//     // Mờ dần cả lời ngỏ và bức thư
-//     if(qBox) qBox.style.opacity = '0';
-//     if(letterOverlay) letterOverlay.style.opacity = '0';
-    
-//     // Đợi mờ hẳn rồi mới ẩn đi hoàn toàn
-//     setTimeout(() => {
-//         if(qBox) qBox.style.display = 'none';
-//         if(letterOverlay) letterOverlay.style.display = 'none';
-//     }, 2000);
-// }
 function skipAll(reason) {
         const qBox = document.getElementById('question-box');
     const letterOverlay = document.getElementById('letter-overlay');
@@ -111,7 +80,7 @@ function typeWriter() {
 window.addEventListener('load', function() {
     setTimeout(typeWriter, 8000); 
 });
-const textToType = "Có lẽ tớ nợ cậu một lời xin lỗi vì trước đó đã hơi vồ vập làm cậu thấy khó xử. Tớ vẫn thực sự trân trọng và muốn tìm hiểu cậu, nhưng giờ tớ chọn cách để mọi thứ thuận theo tự nhiên. Cứ thoải mái nhé, mình vẫn là bạn mà.";
+const textToType = "Có lẽ tớ nợ cậu một lời xin lỗi vì trước đó đã hơi vồ vập làm cậu thấy khó xử. Tớ vẫn thực sự trân trọng và muốn tìm hiểu cậu, nhưng giờ tớ chọn cách để mọi chuyện thuận theo tự nhiên. Cứ thoải mái nhé, mình vẫn là bạn mà :D";
 let charIndex = 0;
 
 function typeLetter() {
@@ -135,15 +104,6 @@ function typeLetter() {
     }
 }
 
-// Gọi hàm này trong cái hàm openLetter() của cậu nhé
-// function openLetter() {
-//     // ... code hiện overlay của cậu ...
-//     document.getElementById('letter-overlay').classList.add('active'); // Giả sử cậu dùng class active để hiện
-    
-//     // Đợi overlay hiện lên mượt mà rồi mới bắt đầu gõ
-//     setTimeout(typeLetter, 1500);
-
-// }
 function openLetter() {
         trackAction("mở thư");
     const letterOverlay = document.getElementById('letter-overlay');
