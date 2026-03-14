@@ -1451,22 +1451,3 @@ body {
 #letter-overlay.active .letter-paper {
     transform: translateY(0) !important;
 }
-.btn-paper {
-    background: transparent;
-    /* Viền màu xám tro nhẹ, không quá gắt như màu đen */
-    border: 1px solid rgba(0, 0, 0, 0.15); 
-    color: #555; 
-    padding: 8px 25px;
-    border-radius: 20px; /* Bo tròn đồng bộ với nút bên ngoài */
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 12px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.5s ease;
-}
-
-.btn-paper:hover {
-    background: rgba(0, 0, 0, 0.05);
-    color: #000;
-    border-color: rgba(0, 0, 0, 0.3);
-}
