@@ -69,7 +69,7 @@ createStars();
 //     }, 2000);
 // }
 function skipAll(reason) {
-
+        const qBox = document.getElementById('question-box');
     const letterOverlay = document.getElementById('letter-overlay');
     if (reason === 'refuse') {
         trackAction("No");
@@ -82,6 +82,12 @@ function skipAll(reason) {
         setTimeout(() => {
             letterOverlay.style.display = 'none';
         }, 5000);
+    }
+    if(qBox){
+        qBox.style.opacity = '0';
+        setTimeout(() => {
+            qBox.style.display = 'none';
+        }, 2000);
     }
 }
 const message = "Tớ có đôi lời muốn nói, cậu có rảnh không?";
