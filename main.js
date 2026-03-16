@@ -104,8 +104,36 @@ function typeLetter() {
     }
 }
 
+// function openLetter() {
+//         trackAction("mở thư");
+//     const letterOverlay = document.getElementById('letter-overlay');
+//     const qBox = document.getElementById('question-box');
+
+//     // Ẩn lời ngỏ
+//     if(qBox) qBox.style.opacity = '0';
+//     setTimeout(() => { if(qBox) qBox.style.display = 'none'; }, 1000);
+
+//     // Hiện thư: Quan trọng là phải chỉnh display TRƯỚC khi opacity
+    
+//     setTimeout(() => {
+//         letterOverlay.style.display = 'flex';
+//     }, 1000);
+//     setTimeout(() => {
+//         letterOverlay.style.opacity = '1';
+//         // Reset lại index nếu muốn chữ gõ lại từ đầu
+//         charIndex = 0;
+//         document.getElementById("letter-body").innerHTML = "";
+//         setTimeout(typeLetter, 2000);
+//     }, 1000);
+// }
+function trackAction(actionName) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxqUF2-mNIZmVWaza0ucN7rD_8cMVUvSAvZ-mUBQ6F7Ac9Ex2ASa7i4SqF694ieQsER/exec';
+    fetch(`${scriptURL}?action=${encodeURIComponent(actionName)}`, { mode: 'no-cors' })
+        .then(() => console.log('Đã lưu: ' + actionName))
+        .catch(error => console.error('Lỗi lưu DB:', error));
+}
 function openLetter() {
-        trackAction("mở thư");
+    trackAction("mở thư");
     const letterOverlay = document.getElementById('letter-overlay');
     const qBox = document.getElementById('question-box');
 
@@ -113,22 +141,20 @@ function openLetter() {
     if(qBox) qBox.style.opacity = '0';
     setTimeout(() => { if(qBox) qBox.style.display = 'none'; }, 1000);
 
-    // Hiện thư: Quan trọng là phải chỉnh display TRƯỚC khi opacity
-    
+    // Hiện thư:
     setTimeout(() => {
+        // 1. Chuyển display trước
         letterOverlay.style.display = 'flex';
+        
+        // 2. Nghỉ 50ms rồi mới tăng opacity và trượt tờ giấy lên
+        setTimeout(() => {
+            letterOverlay.style.opacity = '1';
+            letterOverlay.classList.add('active'); // Thêm dòng này để tờ giấy trượt lên
+            
+            // Chuẩn bị gõ chữ
+            charIndex = 0;
+            document.getElementById("letter-body").innerHTML = "";
+            setTimeout(typeLetter, 1500);
+        }, 50); 
     }, 1000);
-    setTimeout(() => {
-        letterOverlay.style.opacity = '1';
-        // Reset lại index nếu muốn chữ gõ lại từ đầu
-        charIndex = 0;
-        document.getElementById("letter-body").innerHTML = "";
-        setTimeout(typeLetter, 2000);
-    }, 1000);
-}
-function trackAction(actionName) {
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxqUF2-mNIZmVWaza0ucN7rD_8cMVUvSAvZ-mUBQ6F7Ac9Ex2ASa7i4SqF694ieQsER/exec';
-    fetch(`${scriptURL}?action=${encodeURIComponent(actionName)}`, { mode: 'no-cors' })
-        .then(() => console.log('Đã lưu: ' + actionName))
-        .catch(error => console.error('Lỗi lưu DB:', error));
 }
