@@ -50,7 +50,7 @@ function skipAll(reason) {
         // Đợi mờ hẳn rồi mới cất đi
         setTimeout(() => {
             letterOverlay.style.display = 'none';
-        }, 5000);
+        }, 2000);
     }
     if(qBox){
         qBox.style.opacity = '0';
@@ -105,7 +105,7 @@ function typeLetter() {
 }
 
 function openLetter() {
-        trackAction("mở thư");
+    trackAction("mở thư");
     const letterOverlay = document.getElementById('letter-overlay');
     const qBox = document.getElementById('question-box');
 
@@ -113,17 +113,20 @@ function openLetter() {
     if(qBox) qBox.style.opacity = '0';
     setTimeout(() => { if(qBox) qBox.style.display = 'none'; }, 1000);
 
-    // Hiện thư: Quan trọng là phải chỉnh display TRƯỚC khi opacity
-    
+    // Bật overlay lên trước (chưa mờ)
     setTimeout(() => {
         letterOverlay.style.display = 'flex';
-    }, 1000);
-    setTimeout(() => {
-        letterOverlay.style.opacity = '1';
-        // Reset lại index nếu muốn chữ gõ lại từ đầu
-        charIndex = 0;
-        document.getElementById("letter-body").innerHTML = "";
-        setTimeout(typeLetter, 2000);
+        
+        // Nghỉ 50ms để CSS kích hoạt transition, sau đó mới cho hiện dần lên
+        setTimeout(() => {
+            letterOverlay.style.opacity = '1';
+            
+            // Reset lại index nếu muốn chữ gõ lại từ đầu
+            charIndex = 0;
+            document.getElementById("letter-body").innerHTML = "";
+            setTimeout(typeLetter, 2000);
+        }, 50); // Cực kỳ quan trọng ở chỗ 50ms này
+        
     }, 1000);
 }
 function trackAction(actionName) {
