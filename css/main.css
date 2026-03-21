@@ -1427,11 +1427,11 @@ body {
   50% { transform: rotate(14deg) rotateY(-5deg); }
 }
 @-webkit-keyframes moving-flower-10 {
-  0%, 100% { transform: rotate(5deg); }
+  0%, 100% { transform: rotate(7deg); }
   50% { transform: rotate(8deg) rotateY(-5deg); }
 }
 @keyframes moving-flower-10 {
-  0%, 100% { transform: rotate(5deg); }
+  0%, 100% { transform: rotate(7deg); }
   50% { transform: rotate(8deg) rotateY(-5deg); }
 }
 @-webkit-keyframes moving-flower-7 {
@@ -1452,19 +1452,19 @@ body {
 }
 @-webkit-keyframes moving-flower-9 {
   0%, 100% { transform: rotate(-5deg); }
-  50% { transform: rotate(-6deg) rotateY(6deg); }
+  50% { transform: rotate(-10deg) rotateY(6deg); }
 }
 @keyframes moving-flower-9 {
   0%, 100% { transform: rotate(-5deg); }
-  50% { transform: rotate(-6deg) rotateY(6deg); }
+  50% { transform: rotate(-10deg) rotateY(6deg); }
 }
 @-webkit-keyframes moving-flower-6 {
   0%, 100% { transform: rotate(5deg); }
-  50% { transform: rotate(4deg) rotateY(3deg); }
+  50% { transform: rotate(14deg) rotateY(3deg); }
 }
 @keyframes moving-flower-6 {
   0%, 100% { transform: rotate(5deg); }
-  50% { transform: rotate(4deg) rotateY(3deg); }
+  50% { transform: rotate(14deg) rotateY(3deg); }
 }
 @-webkit-keyframes blooming-leaf-right {
   0% {
@@ -1576,6 +1576,17 @@ body {
 } 
 .flower__g-long {
     bottom: 33vh !important;
+}
+.flower--4,
+.flower--8,
+.flower--5{
+  display: none !important;
+}
+.flower--5 .flower__line__leaf,
+.flower--8 .flower__line__leaf,
+.flower--6 .flower__line__leaf,
+.flower--7 .flower__line__leaf{
+  display: none;
 }
 /* Container chứa 2 lựa chọn */
 #action-buttons {
