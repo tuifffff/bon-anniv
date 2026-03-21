@@ -67,10 +67,19 @@ function typeWriter() {
     const buttons = document.getElementById("action-buttons");
 
     if (index < message.length) {
-        textElement.innerHTML += message.charAt(index);
+        // textElement.innerHTML += message.charAt(index);
+        // index++;
+        // //  60ms 
+        // setTimeout(typeWriter, 50);
+        let currentChar = message.charAt(index);
+        textElement.innerHTML += currentChar;
         index++;
-        //  60ms 
-        setTimeout(typeWriter, 50); 
+        // Mặc định tốc độ gõ là 50ms
+        let nextDelay = 60; 
+        if (currentChar === "," && index === 4) {
+            nextDelay = 1000;
+        }
+        setTimeout(typeWriter, nextDelay);    
     } else {
         // Đánh máy xong thì hiện 2 nút bấm ra từ từ
         buttons.style.opacity = "1";

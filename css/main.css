@@ -188,7 +188,7 @@ body {
   background-color: #1aaa15;
   filter: blur(10vmin);
 }
-.flower__leaf {
+/* .flower__leaf {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -202,7 +202,7 @@ body {
   box-shadow: inset 0 0 2vmin rgba(255, 255, 255, 0.5);
 }
 .flower__leaf--1 {
-  transform: translate(-10%, 1%) rotateY(40deg) rotateX(-50deg);/* -50*/
+  transform: translate(-10%, 1%) rotateY(40deg) rotateX(-50deg);
 }
 .flower__leaf--2 {
   transform: translate(-50%, -4%) rotateX(40deg);
@@ -259,6 +259,53 @@ body {
   rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), 
   repeating-linear-gradient(67.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, 
   transparent 1px, transparent 12px), linear-gradient(90deg, rgb(190, 133, 0), rgb(190, 133, 0));
+} */
+.flower__leaf {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  /* Tăng độ rộng để các cánh hoa có thể đè/giao nhau */
+  width: 8vmin; 
+  height: 11vmin;
+  /* Dáng búp: Đỉnh tròn thuôn, đáy bầu bĩnh bám vào cuống */
+  border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
+  background-color: #ffffff;
+  /* Gradient từ cuống xanh nhạt vuốt lên đỉnh trắng tinh */
+  background-image: linear-gradient(to top, #d5eaf5 10%, #ffffff 80%);
+  transform-origin: bottom center;
+  opacity: 0.95;
+  /* Đổ bóng viền cực quan trọng để phân lớp các cánh hoa trắng không bị bết vào nhau */
+  box-shadow: inset 0 0 2vmin rgba(0, 0, 0, 0.15);
+}
+
+/* Lớp 1: Cánh ở trong cùng (Phía sau) - Hơi ngả ra sau một chút */
+.flower__leaf--1 {
+  transform: translate(-50%, 0) rotateX(-20deg);
+  z-index: 1;
+}
+
+/* Lớp 2: Cánh bên trái - Ôm cong từ trái vào tâm */
+.flower__leaf--2 {
+  transform: translate(-50%, 0) rotateZ(-18deg) rotateY(-45deg);
+  z-index: 2;
+}
+
+/* Lớp 3: Cánh bên phải - Ôm cong từ phải vào tâm */
+.flower__leaf--3 {
+  transform: translate(-50%, 0) rotateZ(18deg) rotateY(45deg);
+  z-index: 3;
+}
+
+/* Lớp 4: Cánh ngoài cùng (Mặt trước) - Thấp hơn một chút, bọc toàn bộ lại */
+.flower__leaf--4 {
+  width: 0vmin; /* Rộng hơn để bao trọn mặt tiền */
+  height: 0vmin;  /* Lùn hơn để lộ các lớp cánh phía sau ra */
+  transform: translate(-50%, 4%) rotateX(25deg);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background-image: linear-gradient(to top, #c0e0f2, #ffffff);
+  z-index: 4;
+  /* Thêm chút bóng đổ hắt ra phía sau để cánh trước nổi bật hẳn lên */
+  box-shadow: inset 0 0 1.5vmin rgba(0,0,0,0.1), 0 2px 6px rgba(0,0,0,0.1);
 }
 .flower__line {
   height: 55vmin;
