@@ -1582,7 +1582,8 @@ body {
 .flower--10{
   display: none !important;
 }
-.flower--5 .flower__line__leaf,
+.flower--6 .flower__line__leaf,
+.flower--7 .flower__line__leaf,
 .flower--8 .flower__line__leaf{
   display: none;
 }
