@@ -205,8 +205,8 @@ body {
           animation: moving-flower-10 5s linear infinite;
 }
 
-.flower--4 .flower__line{
-  height: 39vmin;
+.flower--3 .flower__line{
+  height: 58vmin;
   -webkit-animation-delay: 0.7s;
           animation-delay: 0.7s;
 }
@@ -216,12 +216,12 @@ body {
           animation-delay: 0.7s;
 }
 .flower--10 .flower__line{
-  height: 52vmin;
+  height: 48vmin;
   -webkit-animation-delay: 0.7s;
           animation-delay: 0.7s;
 }
 .flower--7 .flower__line{
-  height: 62vmin;
+  height: 48vmin;
   -webkit-animation-delay: 0.7s;
           animation-delay: 0.7s;
 }
@@ -236,7 +236,7 @@ body {
           animation-delay: 0.7s;
 }
 .flower--6 .flower__line {
-  height: 62vmin;
+  height: 52vmin;
   -webkit-animation-delay: 0.7s;
           animation-delay: 0.7s;
 }
@@ -1396,18 +1396,18 @@ body {
 }
 @-webkit-keyframes moving-flower-3 {
   0%, 100% {
-    transform: rotate(-18deg);
+    transform: rotate(-13deg);
   }
   50% {
-    transform: rotate(-20deg) rotateY(-10deg);
+    transform: rotate(-18deg) rotateY(-10deg);
   }
 }
 @keyframes moving-flower-3 {
   0%, 100% {
-    transform: rotate(-18deg);
+    transform: rotate(-13deg);
   }
   50% {
-    transform: rotate(-20deg) rotateY(-10deg);
+    transform: rotate(-18deg) rotateY(-10deg);
   }
 }
 @-webkit-keyframes moving-flower-4 {
@@ -1435,12 +1435,12 @@ body {
   50% { transform: rotate(8deg) rotateY(-5deg); }
 }
 @-webkit-keyframes moving-flower-7 {
-  0%, 100% { transform: rotate(-7deg); }
-  50% { transform: rotate(-11deg) rotateY(4deg); }
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(-7deg) rotateY(4deg); }
 }
 @keyframes moving-flower-7 {
-  0%, 100% { transform: rotate(-7deg); }
-  50% { transform: rotate(-11deg) rotateY(4deg); }
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(-7deg) rotateY(4deg); }
 }
 @-webkit-keyframes moving-flower-8 {
   0%, 100% { transform: rotate(-17deg); }
@@ -1460,11 +1460,11 @@ body {
 }
 @-webkit-keyframes moving-flower-6 {
   0%, 100% { transform: rotate(5deg); }
-  50% { transform: rotate(14deg) rotateY(3deg); }
+  50% { transform: rotate(5deg) rotateY(3deg); }
 }
 @keyframes moving-flower-6 {
   0%, 100% { transform: rotate(5deg); }
-  50% { transform: rotate(14deg) rotateY(3deg); }
+  50% { transform: rotate(5deg) rotateY(3deg); }
 }
 @-webkit-keyframes blooming-leaf-right {
   0% {
@@ -1571,21 +1571,19 @@ body {
 .flower__grass, 
 .flower__g-right,
 .flower__g-front,
-.flower__g-fr{
+.flower__g-fr,
+.flower__g-long {
   display: none !important;
 } 
-.flower__g-long {
-    bottom: 33vh !important;
-}
 .flower--4,
 .flower--8,
-.flower--5{
+.flower--5,
+.flower--9,
+.flower--10{
   display: none !important;
 }
 .flower--5 .flower__line__leaf,
-.flower--8 .flower__line__leaf,
-.flower--6 .flower__line__leaf,
-.flower--7 .flower__line__leaf{
+.flower--8 .flower__line__leaf{
   display: none;
 }
 /* Container chứa 2 lựa chọn */
