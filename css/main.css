@@ -274,7 +274,7 @@ body {
   width: 8vmin;
   height: 8vmin;
   background-color: #1aaa15;
-  filter: blur(10vmin);
+  filter: blur(5vmin);
 }
 /* .flower__leaf {
   position: absolute;
