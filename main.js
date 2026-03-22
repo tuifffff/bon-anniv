@@ -77,7 +77,7 @@ function typeWriter() {
         // Mặc định tốc độ gõ là 50ms
         let nextDelay = 60; 
         if (currentChar === "," && index === 4) {
-            nextDelay = 1000;
+            nextDelay = 2000;
         }
         setTimeout(typeWriter, nextDelay);    
     } else {
@@ -87,7 +87,7 @@ function typeWriter() {
 }
 
 window.addEventListener('load', function() {
-    setTimeout(typeWriter, 8000); 
+    setTimeout(typeWriter, 7000); 
 });
 const textToType = "Có lẽ tớ nợ cậu một lời xin lỗi vì trước đó tớ đã hơi vội vàng làm cậu thấy khó xử. Tớ vẫn thực sự trân trọng cậu, nhưng tớ hiểu nên để mọi chuyện thuận theo tự nhiên thì hay hơn. Tớ không muốn làm cậu cảm thấy ngại hay bận tâm, cứ thoải mái nhé, mình vẫn là bạn mà.";
 let charIndex = 0;
