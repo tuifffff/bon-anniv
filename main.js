@@ -87,9 +87,9 @@ function typeWriter() {
 }
 
 window.addEventListener('load', function() {
-    setTimeout(typeWriter, 7000); 
+    setTimeout(typeWriter, 6000); 
 });
-const textToType = "Có lẽ tớ nợ cậu một lời xin lỗi vì trước đó tớ đã hơi vội vàng làm cậu thấy khó xử. Tớ vẫn thực sự trân trọng cậu, nhưng tớ hiểu nên để mọi chuyện thuận theo tự nhiên thì hay hơn. Tớ không muốn làm cậu cảm thấy ngại hay bận tâm, cứ thoải mái nhé, mình vẫn là bạn mà.";
+const textToType = "Có lẽ tớ nợ cậu một lời xin lỗi vì trước đó tớ đã hơi vội vàng làm cậu thấy khó xử. Tớ vẫn thực sự trân trọng và muốn tìm hiểu cậu, nhưng tớ cũng không muốn làm cậu cảm thấy áp lực hay bận tâm. Tớ biết nên để mọi chuyện thuận theo tự nhiên thì hay hơn. ";
 let charIndex = 0;
 
 function typeLetter() {
