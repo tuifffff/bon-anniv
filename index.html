@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="img/flowers.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -488,7 +488,7 @@
     <script src="main.js"></script>
 <div id="question-box" style="
     position: fixed; 
-    bottom: 8vh; 
+    bottom: max(8vh, calc(env(safe-area-inset-bottom) + 20px));
     left: 50%; 
     transform: translateX(-50%); 
     width: 85%; 
@@ -552,7 +552,7 @@
         </div>
     </div>
 
-    <div id="back-to-flowers" style="position: absolute; bottom: 10%; left: 50%; transform: translateX(-50%); z-index: 999; opacity: 0; transition: 2s;">
+    <div id="back-to-flowers" style="position: absolute; bottom: max(10%, calc(env(safe-area-inset-bottom) + 20px)); left: 50%; transform: translateX(-50%); z-index: 999; opacity: 0; transition: 2s;">
         <button onclick="skipAll('return')" class="btn-glass" style="font-size: 12px; padding: 8px 25px;">
             :)))
         </button>
